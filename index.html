@@ -40,7 +40,6 @@
       z-index: 1;
     }
 
-    /* загрузочный экран с видео */
     .loader-screen {
       position: fixed;
       top: 0;
@@ -92,7 +91,6 @@
       box-shadow: 0 0 20px red;
     }
 
-    /* навигация */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -161,7 +159,6 @@
       display: block;
     }
 
-    /* страница стрима */
     .stream-page {
       display: flex;
       flex-direction: column;
@@ -270,7 +267,6 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Новости */
     .news-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -305,7 +301,6 @@
       margin-bottom: 10px;
     }
 
-    /* карточки команд (главная страница) */
     .teams-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -346,7 +341,6 @@
       color: #ff4d4d;
     }
 
-    /* Модальное окно команды */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -450,7 +444,6 @@
       margin-bottom: 10px;
     }
 
-    /* Карточки игроков */
     .players-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -529,7 +522,6 @@
       border: 1px solid #ff4444;
     }
 
-    /* Формы регистрации */
     .register-form {
       max-width: 500px;
       margin: 30px auto;
@@ -653,7 +645,6 @@
   </style>
 </head>
 <body>
-  <!-- Экран загрузки с видео -->
   <div class="loader-screen" id="loader">
     <video class="loader-video" id="loaderVideo" muted playsinline autoplay>
       <source src="zastavka.mp4" type="video/mp4">
@@ -661,7 +652,6 @@
     <button class="skip-btn" id="skipLoaderBtn">ПРОПУСТИТЬ ▶</button>
   </div>
 
-  <!-- Модальное окно команды -->
   <div class="modal-overlay" id="teamModal">
     <div class="modal-content">
       <button class="modal-close" id="closeModal">✕</button>
@@ -678,7 +668,6 @@
     </div>
   </div>
 
-  <!-- Основной сайт -->
   <div class="main-site" id="mainSite">
     <nav class="navbar">
       <div class="logo-container">
@@ -695,7 +684,6 @@
       </div>
     </nav>
 
-    <!-- Страница Стрим -->
     <div id="stream" class="section active">
       <div class="stream-page">
         <div class="stream-container">
@@ -715,7 +703,7 @@
           </div>
           <div class="tournament-info">
             <h3>🔥 HEADSHOT CUP 2026</h3>
-            <p>Призовой фонд: <span style="color:#ff5555;">$5000</span></p>
+            <p>Призовой фонд: <span style="color:#ff5555;">$Pirashki_choy</span></p>
             <p>Формат: 5x5 defuse</p>
             <p>Карты: de_dust2, de_inferno, de_nuke</p>
             <p>Следующий матч: 19:00 МСК</p>
@@ -724,7 +712,6 @@
       </div>
     </div>
 
-    <!-- Страница Новости -->
     <div id="news" class="section">
       <h2 style="color:#ff5555; margin-bottom:20px;">📰 НОВОСТИ ТУРНИРА</h2>
       <div class="news-grid">
@@ -746,19 +733,16 @@
       </div>
     </div>
 
-    <!-- Страница Команды -->
     <div id="teams" class="section">
       <h2 style="color:#ff5555; margin-bottom:20px;">💀 КОМАНДЫ ТУРНИРА</h2>
       <div class="teams-grid" id="teamsGrid"></div>
     </div>
 
-    <!-- Страница Игроки -->
     <div id="players" class="section">
       <h2 style="color:#ff5555; margin-bottom:20px;">🎯 КАРТОЧКИ ИГРОКОВ</h2>
       <div class="players-grid" id="playersGrid"></div>
     </div>
 
-    <!-- Страница Регистрация команд -->
     <div id="register-team" class="section">
       <div class="register-form">
         <img src="skull.png" alt="SKULL" class="register-logo">
@@ -776,7 +760,6 @@
       </div>
     </div>
 
-    <!-- Страница Регистрация игроков -->
     <div id="register-player" class="section">
       <div class="register-form">
         <img src="skull.png" alt="SKULL" class="register-logo">
@@ -809,44 +792,35 @@
   </div>
 
   <script>
-    // Базы данных
+    // ==================== БАЗА ДАННЫХ ====================
     let teamsDB = [
       { 
         name: 'ANGELS', 
         tag: 'VIP', 
         logo: 'command1.png',
         players: [
-          { nick: 'Karina', kills: 150, exp: 1500, level: 5 },
-          { nick: 'PaPaY', kills: 120, exp: 1200, level: 1 },
-          { nick: 'Elive11', kills: 250, exp: 2500, level: 2 },
-          { nick: '7teen', kills: 90, exp: 900, level: 1 },
-          { nick: '99', kills: 110, exp: 1100, level: 1 }
+          { nick: 'Karina', kills: 150, exp: 1500 },
+          { nick: 'PaPaY', kills: 250, exp: 2500 }
         ],
-        tournaments: ['Headshot Cup 2025 (1 место)', 'CS 1.6 League 2024 (1 место)']
+        tournaments: ['Headshot Cup 2025 (2 место)', 'CS 1.6 League 2024 (1 место)']
       },
       { 
-        name: 'UZ', 
-        tag: 'UZB', 
+        name: 'UZB', 
+        tag: 'UZ', 
         logo: 'command2.png',
         players: [
-          { nick: 'FROZEN', kills: 200, exp: 2000, level: 2 },
-          { nick: 'VIRTUS', kills: 180, exp: 1800, level: 1 },
-          { nick: 'CAYBER', kills: 400, exp: 4000, level: 3 },
-          { nick: 'TEXAS', kills: 160, exp: 1600, level: 1 },
-          { nick: 'SIT', kills: 140, exp: 1400, level: 1 }
+          { nick: 'UZ F R O Z E N', kills: 200, exp: 2000 },
+          { nick: 'UZ V I R T U S', kills: 400, exp: 4000 }
         ],
         tournaments: ['Headshot Cup 2025 (1 место)', 'Major 2024 (3 место)']
       },
       { 
-        name: 'SK Gaming', 
+        name: 'SK game', 
         tag: 'SK', 
         logo: 'command3.png',
         players: [
-          { nick: 'f0rest', kills: 300, exp: 3000, level: 3 },
-          { nick: 'GeT_RiGhT', kills: 280, exp: 2800, level: 2 },
-          { nick: 'RobbaN', kills: 190, exp: 1900, level: 1 },
-          { nick: 'walle', kills: 170, exp: 1700, level: 1 },
-          { nick: 'Tentpole', kills: 150, exp: 1500, level: 1 }
+          { nick: 'Alishka', kills: 300, exp: 3000 },
+          { nick: 'Elive11', kills: 280, exp: 2800 }
         ],
         tournaments: ['Headshot Cup 2025 (3 место)', 'Winter Cup 2024 (1 место)']
       },
@@ -855,11 +829,7 @@
         tag: 'M19', 
         logo: 'command4.png',
         players: [
-          { nick: 'latro', kills: 220, exp: 2200, level: 2 },
-          { nick: '400kg', kills: 180, exp: 1800, level: 1 },
-          { nick: 'tixo', kills: 160, exp: 1600, level: 1 },
-          { nick: 'ed1k', kills: 140, exp: 1400, level: 1 },
-          { nick: 'xek', kills: 120, exp: 1200, level: 1 }
+          { nick: '7teen', kills: 220, exp: 2200 }
         ],
         tournaments: ['Headshot Cup 2025 (4 место)']
       },
@@ -868,10 +838,7 @@
         tag: 'FNC', 
         logo: 'command5.png',
         players: [
-          { nick: 'olofmeister', kills: 350, exp: 3500, level: 3 },
-          { nick: 'JW', kills: 320, exp: 3200, level: 3 },
-          { nick: 'flusha', kills: 290, exp: 2900, level: 2 },
-          { nick: 'KRIMZ', kills: 260, exp: 2600, level: 2 }
+          { nick: 'Trololo', kills: 350, exp: 3500 }
         ],
         tournaments: ['Major 2024 (1 место)', 'Headshot Cup 2025 (участие)']
       },
@@ -880,22 +847,20 @@
         tag: 'NIP', 
         logo: 'command6.png',
         players: [
-          { nick: 'HeatoN', kills: 500, exp: 5000, level: 3 },
-          { nick: 'Potti', kills: 450, exp: 4500, level: 3 },
-          { nick: 'SpawN', kills: 420, exp: 4200, level: 3 }
+          { nick: 'sit', kills: 500, exp: 5000 },
+          { nick: 'SpawN', kills: 420, exp: 4200 }
         ],
         tournaments: ['Legendary Cup 2023 (1 место)', 'Old School League (2 место)']
       }
     ];
 
-    // Функция расчета уровня
+    // ==================== ФУНКЦИИ ====================
     function calculateLevel(exp) {
       if (exp >= 4000) return 3;
       if (exp >= 2000) return 2;
       return 1;
     }
 
-    // Рендер карточек команд на главной
     function renderTeamCards() {
       const grid = document.getElementById('teamsGrid');
       grid.innerHTML = teamsDB.map((team, index) => `
@@ -906,7 +871,6 @@
       `).join('');
     }
 
-    // Открыть модальное окно команды
     function openTeamModal(index) {
       const team = teamsDB[index];
       document.getElementById('modalLogo').src = team.logo;
@@ -928,7 +892,6 @@
       document.getElementById('teamModal').classList.add('active');
     }
 
-    // Закрыть модальное окно
     document.getElementById('closeModal').addEventListener('click', () => {
       document.getElementById('teamModal').classList.remove('active');
     });
@@ -939,7 +902,6 @@
       }
     });
 
-    // Рендер карточек игроков
     function renderPlayerCards() {
       const allPlayers = teamsDB.flatMap(team => 
         team.players.map(p => ({ ...p, clan: team.name }))
@@ -966,18 +928,16 @@
       `).join('');
     }
 
-    // Обновление списка команд в селекте
     function updateClanSelect() {
       const select = document.getElementById('playerClan');
       select.innerHTML = '<option value="">Выбери клан</option>' + 
         teamsDB.map(t => `<option value="${t.name}">${t.name}</option>`).join('');
     }
 
-    // Рендер зарегистрированных команд
     function renderRegisteredTeams() {
       const container = document.getElementById('registeredTeams');
       container.innerHTML = '<h3>Зарегистрированные команды:</h3>' + 
-        teamsDB.map((t, i) => `
+        teamsDB.map(t => `
           <div class="player-entry">
             <span>💣 ${t.name} [${t.tag}]</span>
             <span>Игроков: ${t.players.length}</span>
@@ -985,7 +945,6 @@
         `).join('');
     }
 
-    // Рендер зарегистрированных игроков
     function renderRegisteredPlayers() {
       const allPlayers = teamsDB.flatMap(team => 
         team.players.map(p => ({ ...p, clan: team.name }))
@@ -1001,14 +960,14 @@
         `).join('');
     }
 
-    // Инициализация
+    // ==================== ИНИЦИАЛИЗАЦИЯ ====================
     renderTeamCards();
     renderPlayerCards();
     updateClanSelect();
     renderRegisteredTeams();
     renderRegisteredPlayers();
 
-    // Загрузка видео - САМАЯ ВАЖНАЯ ЧАСТЬ!
+    // ==================== ЗАГРУЗКА ====================
     const loader = document.getElementById('loader');
     const skipBtn = document.getElementById('skipLoaderBtn');
     const video = document.getElementById('loaderVideo');
@@ -1021,24 +980,21 @@
       }
     }
 
-    // Когда видео заканчивается - скрываем загрузчик
     video.addEventListener('ended', () => {
       hideLoader();
     });
 
-    // Кнопка пропуска
     skipBtn.addEventListener('click', () => {
       hideLoader();
     });
 
-    // Запасной вариант: если видео не загрузилось, скрываем через 4 секунды
     setTimeout(() => {
       if (!loader.classList.contains('hidden')) {
         hideLoader();
       }
     }, 4000);
 
-    // Навигация
+    // ==================== НАВИГАЦИЯ ====================
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1048,7 +1004,7 @@
       });
     });
 
-    // Чат
+    // ==================== ЧАТ ====================
     const chatMessages = document.getElementById('chatMessages');
     const chatInput = document.getElementById('chatInput');
     const sendBtn = document.getElementById('sendChatBtn');
@@ -1073,7 +1029,7 @@
       if (e.key === 'Enter') sendBtn.click();
     });
 
-    // Регистрация команды
+    // ==================== РЕГИСТРАЦИЯ КОМАНДЫ ====================
     document.getElementById('registerTeamBtn').addEventListener('click', () => {
       const name = document.getElementById('teamName').value.trim();
       const tag = document.getElementById('teamTag').value.trim();
@@ -1097,7 +1053,7 @@
       }
     });
 
-    // Регистрация игрока
+    // ==================== РЕГИСТРАЦИЯ ИГРОКА ====================
     document.getElementById('registerPlayerBtn').addEventListener('click', () => {
       const nick = document.getElementById('playerNick').value.trim();
       const clanName = document.getElementById('playerClan').value;
@@ -1121,7 +1077,41 @@
       }
     });
 
-    // Сообщения в чат
+    // ==================== АДМИН-ПАНЕЛЬ (Ctrl+Shift+A) ====================
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        e.preventDefault();
+        const allPlayers = teamsDB.flatMap(team => 
+          team.players.map(p => ({ ...p, clan: team.name }))
+        );
+        let playerList = allPlayers.map((p, i) => `${i+1}. ${p.nick} (${p.clan}) - Киллы:${p.kills} Опыт:${p.exp}`).join('\n');
+        let choice = prompt(`АДМИН-ПАНЕЛЬ\nВыбери игрока (введи номер):\n${playerList}\n\nИли введи 0 для выхода`);
+        
+        if (choice && choice !== '0') {
+          let index = parseInt(choice) - 1;
+          if (allPlayers[index]) {
+            let player = allPlayers[index];
+            let newKills = prompt(`Новые киллы для ${player.nick} (сейчас: ${player.kills}):`, player.kills);
+            let newExp = prompt(`Новый опыт для ${player.nick} (сейчас: ${player.exp}):`, player.exp);
+            
+            if (newKills !== null && newExp !== null) {
+              teamsDB.forEach(team => {
+                let p = team.players.find(pl => pl.nick === player.nick && team.name === player.clan);
+                if (p) {
+                  p.kills = parseInt(newKills) || 0;
+                  p.exp = parseInt(newExp) || 0;
+                }
+              });
+              renderPlayerCards();
+              renderRegisteredPlayers();
+              alert(`Стата ${player.nick} обновлена!`);
+            }
+          }
+        }
+      }
+    });
+
+    // ==================== ЧАТ-СООБЩЕНИЯ ====================
     setTimeout(() => addMessage('Ждем матч NaVi vs VP!', 'Caster'), 4000);
     setTimeout(() => addMessage('markeloff набил 40 киллов!', 'Fanatic'), 6000);
   </script>
